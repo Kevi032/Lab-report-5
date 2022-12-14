@@ -1,0 +1,97 @@
+#define pin8 = AIN1
+#define pin7 = BIN1
+#define pin5 = PWMA
+#define pin6 = PWMB
+
+#define PINL = A2
+#define pinM = A1
+#define pinR = A0
+
+
+int LValue;  // variable to read the value from the analog pin
+int MValue;  // variable to read the value from the analog pin
+int RValue;  // variable to read the value from the analog pin
+
+
+  void setup() {
+  Serial.begin(9600);
+   pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);  
+  pinMode(8,OUTPUT);
+    pinMode(A2,INPUT);
+ pinMode(A0,INPUT);
+ pinMode(A1,INPUT);
+  pinMode(3,OUTPUT);
+ digitalWrite (3,HIGH);
+}
+
+void loop() {
+  int Lvalue = analogRead(A2);
+  float l = Lvalue;
+  Serial.print("LValue=");
+  Serial.print(l);
+  Serial.print("\t");
+  int Mvalue = analogRead(A1);
+  float M = Mvalue;
+  Serial.print("MValue=");
+  Serial.print(M);
+   Serial.print("\t");
+  int Rvalue = analogRead(A0);
+  float R = Rvalue;
+  Serial.print("RValue=");
+  Serial.println(R);
+
+ if ( M>50 ){
+ Forward();
+ } 
+  
+  else if (l>50 ){
+  RIGHT();}
+  
+  
+  else if (R>50 ){
+    Left();}
+    
+  
+  else if (M < 50){
+  Stop();}
+
+}
+ 
+ void Forward() {
+  
+  // put your main code here, to run repeatedly:
+  digitalWrite (7,1); 
+  digitalWrite (8,1); 
+  analogWrite (6,60); 
+  analogWri-te (5,60);
+ }
+  
+  void Stop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite (7,1); 
+  digitalWrite (8,1); 
+  analogWrite (6,0); 
+  analogWrite (5,0);
+  }
+  void Left() {
+  // put your main code here, to run repeatedly:
+  digitalWrite (7,0); 
+  digitalWrite (8,1); 
+  analogWrite (6,60); 
+  analogWrite (5,60);
+  
+  
+}
+
+ void RIGHT() {
+  // put your main code here, to run repeatedly:
+  digitalWrite (7,1); 
+  digitalWrite (8,0); 
+  analogWrite (6,60); 
+  analogWrite (5,60);
+  
+  
+}
+  
