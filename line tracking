@@ -1,11 +1,12 @@
-#define pin8 = AIN1
-#define pin7 = BIN1
-#define pin5 = PWMA
-#define pin6 = PWMB
+#define pin8 = AIN1 // Motor 1 connected to D8 pin
+#define pin7 = BIN1  // Motor 2 connected to D7 pin
+#define pin5 = PWMA   // Motor 1 speed control to D5 pin
+#define pin6 = PWMB   // Motor 2 speed control to D6 pin
 
-#define PINL = A2
-#define pinM = A1
-#define pinR = A0
+
+#define PINL = A2   // pin A2 for the l
+#define pinM = A1   // pin A1 for the M
+#define pinR = A0   // pin A0 for the R
 
 
 int LValue;  // variable to read the value from the analog pin
@@ -42,7 +43,7 @@ void loop() {
   Serial.print("RValue=");
   Serial.println(R);
 
- if ( M>50 ){
+ if ( M>50 ){    // if M>50 go foward 
  Forward();
  } 
   
@@ -54,7 +55,7 @@ void loop() {
     Left();}
     
   
-  else if (M < 50){
+  else if (M < 50 {
   Stop();}
 
 }
@@ -62,10 +63,10 @@ void loop() {
  void Forward() {
   
   // put your main code here, to run repeatedly:
-  digitalWrite (7,1); 
-  digitalWrite (8,1); 
-  analogWrite (6,60); 
-  analogWri-te (5,60);
+  digitalWrite (7,1); // motor 2 clockwise direction
+  digitalWrite (8,1); // motor 1 clockwise direction
+  analogWrite (6,60);  //speed 
+  analogWri-te (5,60); //speed 
  }
   
   void Stop() {
