@@ -94,4 +94,4 @@ void loop() {
   
   
 }
-  
+  // for the robot to recognize that there is no more line for quill facing a 360 on itself to find the line you must add a function else if (R>50 ) (M>50 ) (l<50 ) { Left( );}
